@@ -1,4 +1,4 @@
-part of 'space_x_bloc.dart';
+part of 'spacex_bloc.dart';
 
 abstract class SpacexEvent extends Equatable {
   const SpacexEvent();

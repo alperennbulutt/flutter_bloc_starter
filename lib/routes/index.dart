@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mystarter/spacex/bloc/space_x_bloc.dart';
 
+import '../spacex/bloc/spacex_bloc.dart';
 import '../spacex/resources/spacex_repository.dart';
 import '../spacex/views/space_x_scren.dart';
 

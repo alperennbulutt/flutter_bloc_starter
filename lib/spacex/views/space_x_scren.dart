@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:mystarter/spacex/bloc/space_x_bloc.dart';
+import 'package:mystarter/spacex/bloc/spacex_bloc.dart';
 
 class SpacexScreen extends StatelessWidget {
   static const String Route = '/';
@@ -10,15 +10,15 @@ class SpacexScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Bored Screen"),
+        title: Text("Spacex Screen"),
       ),
       body: BlocBuilder<SpacexBloc, SpacexState>(
         builder: (context, state) {
           if (state is SpacexInitial) {
-            return const Text("Initial Text");
+            return Text("Initial Text");
           }
-          if (state is SpacexInProgress) {
-            return const Center(
+          if (state is SpacexLoading) {
+            return Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -30,19 +30,25 @@ class SpacexScreen extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 children: [
                   Text(
-                    state.spaceXModel.name!,
+                    state.spacexModel.name!,
                   ),
-                  Text(
-                    state.spaceXModel.rocket!,
-                  ),
-                  Text(
-                    state.spaceXModel.datePrecision.toString(),
-                  ),
+                  // Text(
+                  //   state.spacexModel.type,
+                  // ),
+                  // Text(
+                  //   state.spacexModel.participants.toString(),
+                  // ),
+                  // ElevatedButton(
+                  //   onPressed: () {
+                  //     context.read<BoredBloc>().add(LoadApiEvent());
+                  //   },
+                  //   child: Text("Load New Activity"),
+                  // ),
                 ],
               ),
             );
           }
-          return Center(child: const Text("Failed"));
+          return Text("Failed");
         },
       ),
     );

@@ -4,6 +4,11 @@
 
 import 'dart:convert';
 
+SpaceXModel spaceXModelFromJson(String str) =>
+    SpaceXModel.fromJson(json.decode(str));
+
+String spaceXModelToJson(SpaceXModel data) => json.encode(data.toJson());
+
 class SpaceXModel {
   dynamic fairings;
   Links? links;
@@ -62,11 +67,6 @@ class SpaceXModel {
     this.launchLibraryId,
     this.id,
   });
-
-  factory SpaceXModel.fromRawJson(String str) =>
-      SpaceXModel.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
 
   factory SpaceXModel.fromJson(Map<String, dynamic> json) => SpaceXModel(
         fairings: json["fairings"],
@@ -172,10 +172,6 @@ class Core {
     this.landpad,
   });
 
-  factory Core.fromRawJson(String str) => Core.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
   factory Core.fromJson(Map<String, dynamic> json) => Core(
         core: json["core"],
         flight: json["flight"],
@@ -222,10 +218,6 @@ class Links {
     this.wikipedia,
   });
 
-  factory Links.fromRawJson(String str) => Links.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
   factory Links.fromJson(Map<String, dynamic> json) => Links(
         patch: json["patch"] == null ? null : Patch.fromJson(json["patch"]),
         reddit: json["reddit"] == null ? null : Reddit.fromJson(json["reddit"]),
@@ -258,10 +250,6 @@ class Flickr {
     this.original,
   });
 
-  factory Flickr.fromRawJson(String str) => Flickr.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
   factory Flickr.fromJson(Map<String, dynamic> json) => Flickr(
         small: json["small"] == null
             ? []
@@ -287,10 +275,6 @@ class Patch {
     this.large,
   });
 
-  factory Patch.fromRawJson(String str) => Patch.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
-
   factory Patch.fromJson(Map<String, dynamic> json) => Patch(
         small: json["small"],
         large: json["large"],
@@ -314,10 +298,6 @@ class Reddit {
     this.media,
     this.recovery,
   });
-
-  factory Reddit.fromRawJson(String str) => Reddit.fromJson(json.decode(str));
-
-  String toRawJson() => json.encode(toJson());
 
   factory Reddit.fromJson(Map<String, dynamic> json) => Reddit(
         campaign: json["campaign"],
